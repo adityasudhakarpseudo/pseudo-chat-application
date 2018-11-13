@@ -1,0 +1,162 @@
+<!-- <p>
+  chat-box works!
+  <button class="btn btn-sm btn-outline-danger btn-logout-user" (click)='logoutUser($event)'><i class="fa fa-sign-out"></i>&nbsp; Sign Out</button>
+</p> -->
+
+<div class="row no-margin page-chat-box">
+  <div class="content-sidebar no-padding">
+    <div class="content-header no-padding user-actions">
+      <span class="round-profile-picture user-profile-picture inline-block sub-blocks">
+        <img src="../../../assets/images/user-default-profile-pic.png" width="50" height="50">
+      </span>
+      <span class="user-details inline-block sub-blocks">
+        <span class="user-name fs-16 fw-bold fc-dark-gray block">Aditya Sudhakar</span>
+        <span class="connection-status fs-10 fw-light fc-light-gray block"><i class="fa fa-circle fc-green"></i>&nbsp;
+          Online</span>
+      </span>
+      <span class="chat-list-toggle inline-block sub-blocks">&#9776;</span>
+    </div>
+    <div class="content-sub-main no-padding">
+      <nav class="nav-chat-box">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" (click)="fetchActiveTab($event,'#nav-chats-list')" id="nav-chats-list-tab"
+            data-toggle="tab" href="#nav-chats-list" role="tab" aria-controls="nav-chats-list" aria-selected="true"><i
+              class="fa fa-comments-o" aria-hidden="true"></i>&nbsp; Chats</a>
+          <a class="nav-item nav-link" (click)="fetchActiveTab($event,'#nav-users-list')" id="nav-users-list-tab"
+            data-toggle="tab" href="#nav-users-list" role="tab" aria-controls="nav-users-list" aria-selected="false"><i
+              class="fa fa-users" aria-hidden="true"></i>&nbsp; Users</a>
+        </div>
+      </nav>
+      <div class="tab-content tab-content-chat-box" id="nav-tabContentChatBox">
+        <div class="tab-pane fade show active" id="nav-chats-list" role="tabpanel" aria-labelledby="nav-chats-list-tab">
+          <div class="row chats-list-container no-margin">
+            <div class="col col-sm-12 no-padding search-chat-list">
+              <i class="fa fa-search"></i>
+              <input type="text" id="input-search-chat-list" placeholder="Search Conversations" class="form-control"
+                autocomplete="off">
+            </div>
+            <div class="col col-sm-12 no-padding chat-list">
+              <div class="col col-sm-12 chat-item active-chat">
+                <span class="round-profile-picture chat-user-profile-picture inline-block sub-blocks">
+                  <img src="../../../assets/images/user-one.png" width="50" height="50">
+                </span>
+                <span class="chat-user-details inline-block sub-blocks">
+                  <span class="chat-user-name fs-14 fw-bold fc-dark-gray block">Gaurav Kumar</span>
+                  <span class="connection-status fs-10 fw-light fc-light-gray block"><i class="fa fa-circle fc-green"></i>&nbsp;
+                    This is a demo are a shortened..</span>
+                </span>
+              </div>
+              <div class="col col-sm-12 chat-item">
+                <span class="round-profile-picture chat-user-profile-picture inline-block sub-blocks">
+                  <img src="../../../assets/images/user-two.png" width="50" height="50">
+                </span>
+                <span class="chat-user-details inline-block sub-blocks">
+                  <span class="chat-user-name fs-14 fw-bold fc-dark-gray block">Vikash Singh</span>
+                  <span class="connection-status fs-10 fw-light fc-light-gray block"><i class="fa fa-circle fc-green"></i>&nbsp;
+                    This is a demo are a shortened..</span>
+                </span>
+              </div>
+              <div class="col col-sm-12 chat-item">
+                <span class="round-profile-picture chat-user-profile-picture inline-block sub-blocks">
+                  <img src="../../../assets/images/user-three.png" width="50" height="50">
+                </span>
+                <span class="chat-user-details inline-block sub-blocks">
+                  <span class="chat-user-name fs-14 fw-bold fc-dark-gray block">Raja Kumar Singh</span>
+                  <span class="connection-status fs-10 fw-light fc-light-gray block"><i class="fa fa-circle fc-green"></i>&nbsp;
+                    This is a demo are a shortened..</span>
+                </span>
+              </div>
+              <div class="col col-sm-12 chat-item">
+                <span class="round-profile-picture chat-user-profile-picture inline-block sub-blocks">
+                  <img src="../../../assets/images/user-one.png" width="50" height="50">
+                </span>
+                <span class="chat-user-details inline-block sub-blocks">
+                  <span class="chat-user-name fs-14 fw-bold fc-dark-gray block">Gaurav Kumar</span>
+                  <span class="connection-status fs-10 fw-light fc-light-gray block"><i class="fa fa-circle fc-green"></i>&nbsp;
+                    This is a demo are a shortened..</span>
+                </span>
+              </div>
+              <div class="col col-sm-12 chat-item">
+                <span class="round-profile-picture chat-user-profile-picture inline-block sub-blocks">
+                  <img src="../../../assets/images/user-two.png" width="50" height="50">
+                </span>
+                <span class="chat-user-details inline-block sub-blocks">
+                  <span class="chat-user-name fs-14 fw-bold fc-dark-gray block">Vikash Singh</span>
+                  <span class="connection-status fs-10 fw-light fc-light-gray block"><i class="fa fa-circle fc-green"></i>&nbsp;
+                    This is a demo are a shortened..</span>
+                </span>
+              </div>
+              <div class="col col-sm-12 chat-item">
+                <span class="round-profile-picture chat-user-profile-picture inline-block sub-blocks">
+                  <img src="../../../assets/images/user-three.png" width="50" height="50">
+                </span>
+                <span class="chat-user-details inline-block sub-blocks">
+                  <span class="chat-user-name fs-14 fw-bold fc-dark-gray block">Raja Kumar Singh</span>
+                  <span class="connection-status fs-10 fw-light fc-light-gray block"><i class="fa fa-circle fc-green"></i>&nbsp;
+                    This is a demo are a shortened..</span>
+                </span>
+              </div>
+              <div class="col col-sm-12 chat-item">
+                <span class="round-profile-picture chat-user-profile-picture inline-block sub-blocks">
+                  <img src="../../../assets/images/user-one.png" width="50" height="50">
+                </span>
+                <span class="chat-user-details inline-block sub-blocks">
+                  <span class="chat-user-name fs-14 fw-bold fc-dark-gray block">Gaurav Kumar</span>
+                  <span class="connection-status fs-10 fw-light fc-light-gray block"><i class="fa fa-circle fc-green"></i>&nbsp;
+                    This is a demo are a shortened..</span>
+                </span>
+              </div>
+              <div class="col col-sm-12 chat-item">
+                <span class="round-profile-picture chat-user-profile-picture inline-block sub-blocks">
+                  <img src="../../../assets/images/user-two.png" width="50" height="50">
+                </span>
+                <span class="chat-user-details inline-block sub-blocks">
+                  <span class="chat-user-name fs-14 fw-bold fc-dark-gray block">Vikash Singh</span>
+                  <span class="connection-status fs-10 fw-light fc-light-gray block"><i class="fa fa-circle fc-green"></i>&nbsp;
+                    This is a demo are a shortened..</span>
+                </span>
+              </div>
+              <div class="col col-sm-12 chat-item">
+                <span class="round-profile-picture chat-user-profile-picture inline-block sub-blocks">
+                  <img src="../../../assets/images/user-three.png" width="50" height="50">
+                </span>
+                <span class="chat-user-details inline-block sub-blocks">
+                  <span class="chat-user-name fs-14 fw-bold fc-dark-gray block">Raja Kumar Singh</span>
+                  <span class="connection-status fs-10 fw-light fc-light-gray block"><i class="fa fa-circle fc-green"></i>&nbsp;
+                    This is a demo are a shortened..</span>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-users-list" role="tabpanel" aria-labelledby="nav-users-list-tab">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-main no-padding">
+    <div class="content-header row no-margin">
+      <div class="col col-sm-4 no-padding">
+        <span class="block fs-16 fc-dark-gray fw-bold">Gaurav Kumar</span>
+        <span class="block fs-10 fc-light-gray fw-light">Last seen 10 minutes ago</span>
+      </div>
+      <div class="col col-sm-8 no-padding text-right">
+        <!-- <button class="btn btn-sm btn-outline-danger btn-logout-user" (click)='logoutUser($event)'><i class="fa fa-sign-out"></i>&nbsp; Sign Out</button> -->
+        <a class="fancy-button bg-gradient1 btn-logout-user" (click)='logoutUser($event)'><span><i class="fa fa-sign-out"
+              aria-hidden="true"></i>&nbsp; Sign Out</span></a>
+      </div>
+    </div>
+    <div class="content-sub-main">
+
+    </div>
+    <div class="content-footer no-padding">
+      <textarea id="input-send-message-to-user" class="form-control" placeholder="Type a message .." autocomplete="off"></textarea>
+      <i class="fa fa-paperclip btn-chat-actions btn-upload-attachment-to-chat" aria-hidden="true"></i>
+      <i class="fa fa-smile-o btn-chat-actions btn-toggle-smiley-selection-for-chat" aria-hidden="true"></i>
+      <a class="fancy-button bg-gradient2 btn-send-chat-message" (click)='sendChatMessage($event)'><span><i class="fa fa-paper-plane-o"
+            aria-hidden="true"></i></span></a>
+    </div>
+  </div>
+</div>

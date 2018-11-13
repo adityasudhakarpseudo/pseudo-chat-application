@@ -1,0 +1,155 @@
+<div class="container-fluid page-user-login no-padding">
+  <div class="row no-margin content-main fill-height">
+
+    <div class="col col-sm-6 content-left">
+      <div class="col col-sm-12 no-padding page-navbar page-navbar-left">
+        <a href="/home" class="company-name">Pseudo Works</a>
+      </div>
+      <div class="col col-sm-12 slider-area product-description text-center">
+        <!-- <img src="../../../../src/assets/images/login-left-background.jpg" width="250" height="auto"> -->
+        <span class="main-title">Let's Kick Now !</span>
+        <span class="sub-title">It's Fast, Easy and Takes less than 30 Seconds.</span>
+      </div>
+      <div class="col col-sm-12 no-padding page-footer page-footer-left">
+        <a href="/home"><i class="fa fa-angle-double-left fa-2x"></i>&nbsp; <span>Home</span></a>
+      </div>
+    </div>
+
+    <div class="col col-sm-6 content-right text-right no-padding">
+      <div class="col col-sm-12 page-navbar page-navbar-right">
+        <input type="hidden" value="open" #nav_open>
+        <a href="javascript:void(0)" (click)='toggleNavbar($event, nav_open);' class="toggle-navbar">&#9776;</a>
+      </div>
+      <div class="col col-sm-12 page-footer page-footer-right no-padding">
+        &copy; Copyright 2018
+      </div>
+      <div class="col col-sm-12 no-padding content-right-background"></div>
+      <div></div>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div class="col col-sm-4 card-layout login-form no-padding form-container">
+      <form id="form-user-login" #formUserLogin="ngForm" (ngSubmit)="verifyUserAction($event,'login')">
+        <div class="col col-sm-12 form-header">
+          <h3>Log In</h3>
+          <span class="header-info">Welcome Back, Please Enter Your Credentials To Continue.</span>
+        </div>
+        <div class="form-input col col-sm-12">
+          <div class="col col-sm-12 no-padding">
+            <div class="form-group" [ngClass]="{'input-error':valid_email}">
+              <label for="input-user-email">Email ID <span [hidden]="email.valid || email.pristine" class="input-required">**
+                  Required</span></label>
+              <input type="email" [(ngModel)]="user_email_id" (ngModelChange)="validateInput($event, 'email')" id="input-user-email"
+                name="email_id" class="form-control" #email="ngModel" required='required' placeholder="Enter Here">
+            </div>
+          </div>
+          <div class="col col-sm-12 no-padding">
+            <div class="form-group" [ngClass]="{'input-error':valid_password}">
+              <label for="input-user-password">Password <span [hidden]="password.valid || password.pristine" class="input-required">**
+                  Required</span></label>
+              <input type="password" [(ngModel)]="user_password" (ngModelChange)="validateInput($event, 'password')" id="input-user-password"
+                name="password" class="form-control" #password="ngModel" required='required' placeholder="Enter Here">
+            </div>
+            <!-- <p [hidden]="password.valid || password.pristine" class="alert alert-danger">Danger</p> -->
+          </div>
+        </div>
+        <div class="col col-sm-12 form-actions text-center">
+          <!-- <button type="submit" class="btn btn-sm btn-outline-success" [disabled]="!formUserLogin.form.valid"><i class="fa fa-check-square-o"></i>&nbsp; Continue</button>
+          <button type="button" class="btn btn-sm btn-outline-primary" (click)='showSignupScreen($event)'>Not a Member Yet ? &nbsp; - &nbsp;<i class="fa fa-user"></i>&nbsp; Sign Up</button> -->
+          <button type="submit" [disabled]="!formUserLogin.form.valid" class="fancy-button bg-gradient1 btn-user-login"><span><i
+                class="fa fa-sign-in" aria-hidden="true"></i>&nbsp; Continue</span></button>
+          <br>
+          <span class="signup-action">
+            Not a member yet ? &nbsp;<a class="btn-user-signup" (click)="toggleFormType($event,'signup')" style="cursor: pointer;">Register Now</a>
+          </span>
+        </div>
+      </form>
+    </div>
+    <!-- END -->
+
+    <!-- SIGNUP FORM -->
+    <div class="col col-sm-4 card-layout signup-form no-padding form-container" style="display: none;">
+      <form id="form-user-signup" #formUserSignup="ngForm" (ngSubmit)="verifyUserAction($event,'signup')">
+        <div class="col col-sm-12 form-header">
+          <h3>Sign Up</h3>
+          <span class="header-info">Please fill your below form to create an account with us.</span>
+        </div>
+        <div class="form-input col col-sm-12">
+          <div class="col col-sm-12 no-padding">
+            <div class="form-group" [ngClass]="{'input-error':valid_first_name}">
+              <label for="input-user-first-name">First Name <span [hidden]="first_name.valid || first_name.pristine"
+                  class="input-required">**
+                  Required</span></label>
+              <input type="text" [(ngModel)]="user_first_name" (ngModelChange)="validateInput($event, 'first_name')" id="input-user-first-name"
+                name="first_name" class="form-control" #first_name="ngModel" required='required' placeholder="Enter Here">
+            </div>
+          </div>
+          <div class="col col-sm-12 no-padding">
+            <div class="form-group" [ngClass]="{'input-error':valid_last_name}">
+              <label for="input-user-first-name">Last Name <span [hidden]="last_name.valid || last_name.pristine" class="input-required">**
+                  Required</span></label>
+              <input type="text" [(ngModel)]="user_last_name" (ngModelChange)="validateInput($event, 'last_name')" id="input-user-first-name"
+                name="last_name" class="form-control" #last_name="ngModel" required='required' placeholder="Enter Here">
+            </div>
+          </div>
+          <div class="col col-sm-12 no-padding">
+            <div class="form-group" [ngClass]="{'input-error':valid_new_email}">
+              <label for="input-user-new-email">Email ID <span [hidden]="new_email.valid || new_email.pristine" class="input-required">**
+                  Required</span></label>
+              <input type="email" [(ngModel)]="user_new_email_id" (ngModelChange)="validateInput($event, 'new_email')" id="input-user-new-email"
+                name="email_id" class="form-control" #new_email="ngModel" required='required' placeholder="Enter Here">
+            </div>
+          </div>
+          <div class="col col-sm-12 no-padding">
+            <div class="form-group" [ngClass]="{'input-error':valid_mobile_number}">
+              <label for="input-user-first-name">Mobile Number <span [hidden]="mobile_number.valid || mobile_number.pristine"
+                  class="input-required">**
+                  Required</span></label>
+              <input type="number" [(ngModel)]="user_mobile_number" (ngModelChange)="validateInput($event, 'mobile_number')"
+                id="input-user-first-name" name="mobile_number" class="form-control" #mobile_number="ngModel" required='required'
+                placeholder="Enter Here">
+            </div>
+          </div>
+          <div class="col col-sm-12 no-padding">
+            <div class="form-group" [ngClass]="{'input-error':valid_new_password}">
+              <label for="input-user-new-password">Password <span [hidden]="new_password.valid || new_password.pristine" class="input-required">**
+                  Required</span></label>
+              <input type="password" [(ngModel)]="user_new_password" (ngModelChange)="validateInput($event, 'new_password')" id="input-user-new-password"
+                name="password" class="form-control" #new_password="ngModel" required='required' placeholder="Enter Here">
+            </div>
+            <!-- <p [hidden]="password.valid || password.pristine" class="alert alert-danger">Danger</p> -->
+          </div>
+        </div>
+        <div class="col col-sm-12 form-actions text-center">
+          <!-- <button type="submit" class="btn btn-sm btn-outline-success" [disabled]="!formUserSignup.form.valid"><i class="fa fa-check-square-o"></i>&nbsp; Continue</button>
+                    <button type="button" class="btn btn-sm btn-outline-primary" (click)='showSignupScreen($event)'>Not a Member Yet ? &nbsp; - &nbsp;<i class="fa fa-user"></i>&nbsp; Sign Up</button> -->
+          <button [disabled]="!formUserSignup.form.valid" class="fancy-button bg-gradient1 btn-user-signup"><span><i
+                class="fa fa-sign-in" aria-hidden="true"></i>&nbsp; Register</span></button>
+          <br>
+          <span class="signup-action">
+            Already Have an Account ? &nbsp;<a class="btn-user-login" (click)="toggleFormType($event,'login')" style="cursor: pointer;">Login</a>
+          </span>
+        </div>
+      </form>
+    </div>
+    <!-- END -->
+
+  </div>
+</div>
+
+
+<div id="login-page-navbar" class="page-navbar sidenav">
+  <input type="hidden" value="close" #nav_close>
+  <a href="javascript:void(0)" class="closebtn" (click)='toggleNavbar($event, nav_close);'><i class="fa fa-times"></i>&nbsp; Close</a>
+  <a href="#" class="nav-actions" style="padding-top: 100px !important;"><i class="fa fa-grav"></i>&nbsp; About Us</a>
+  <a href="#" class="nav-actions"><i class="fa fa-ravelry"></i>&nbsp; Expertise</a>
+  <a href="#" class="nav-actions"><i class="fa fa-braille"></i>&nbsp; Portfolio</a>
+  <a href="#" class="nav-actions"><i class="fa fa-superpowers"></i>&nbsp; Contact Us</a>
+  <a href="#" class="nav-actions social">
+    <i class="fa fa-git-square"></i> 
+    <i class="fa fa-linkedin-square"></i> 
+    <i class="fa fa-twitter-square"></i> 
+    <i class="fa fa-youtube-square"></i>
+    <i class="fa fa-facebook-square"></i>
+  </a>
+</div>

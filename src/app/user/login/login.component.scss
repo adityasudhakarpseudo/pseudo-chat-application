@@ -1,0 +1,407 @@
+@mixin gradientBg($direction, $startColor, $endColor) {
+	background: $startColor;
+	background: -moz-linear-gradient($direction,  $startColor 0%, $endColor 80%,$endColor 100%);
+	background: -webkit-linear-gradient($direction,  $startColor 0%, $endColor 80%,$endColor 100%);
+	background: linear-gradient($direction,  $startColor 0%, $endColor 80%,$endColor 100%);
+}
+.form-control{
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #ddd;
+    transition: all 0.5s;
+    font-size: 12px;
+}
+
+.form-control:focus{
+    outline: none !important;
+    box-shadow: none;
+    border-bottom: 2px solid #e7464d;
+}
+
+.form-group{
+    font-size: 14px;
+    label{
+        margin:0;
+        color: #474747;
+    }
+}
+
+
+// MAIN CONTENT
+.page-user-login{
+    transition: all .5s;
+    height: 100%;
+    .content-main{
+        color: white;
+        .page-navbar-left{
+            a.company-name{
+                font-size: 24px;
+                color: white;
+                font-weight: bold;
+                font-family: 'Finger Paint', cursive;
+            }
+            a.company-name:hover{
+                text-decoration: none;
+            }
+        }
+        .page-footer-left{
+            a{
+                color: white;
+                font-size: 18px;
+                font-weight: 600;
+                transition: all 0.2s;
+                span{
+                    font-size: 12px;
+                    display: inline-block;
+                    position: absolute;
+                    top: 12px;
+                    left: 50px;
+                }
+            }
+            a:hover{
+                text-decoration: none;
+                font-weight: bold;
+            }
+        }
+        .content-left{
+            background: linear-gradient(to left, #e7464d,#e11f27);
+            padding-top: 15px;
+            .product-description{
+                width: 280px;
+                padding:0;
+                margin-top: 40%;
+                span{
+                    display: block;
+                    text-align: left;
+                    padding-left: 20px;
+                }
+                .main-title{
+                   font-size: 24px;
+                   font-weight: bold;
+                }
+                .sub-title{
+                   font-size: 12px;
+                   font-weight: 300;
+                }
+            }
+        }
+        .content-right{
+            background-color: white;
+            padding-top: 15px;
+            position: relative;
+            .content-right-background{
+                background:url('../../../assets/images/background-shapes-one.png');
+                background-repeat: no-repeat;
+                background-size: 100%;
+                opacity: 0.2;
+                height: calc(100% - 1px);
+            }
+            
+            .toggle-navbar{
+                position: absolute;
+                top: 5px;
+                right: 15px;
+                z-index: 9999;
+                font-size: 36px;
+                color: crimson;
+                font-weight: bold;
+            }
+            .toggle-navbar:hover{
+                text-decoration: none;
+            }
+            .page-footer{
+                color: #474747;
+                font-weight: 600;
+            }
+        }
+        .page-footer{
+            position: absolute;
+            bottom: 15px;
+            margin-left: -15px;
+            padding-left: 15px !important;
+            width: calc(100% + 30px);
+            z-index: 9999;
+        }
+        .login-form.card-layout{
+            position: absolute;
+            background: white;
+            top: 0;
+            height: calc(100% - 100px);
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            box-shadow: 0 0 10px #c4c4c4;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            color: #7b7b7b;
+            height: 450px;
+            transition: all 0.5s;
+            .input-error{
+                border: 1px solid crimson;
+            }
+            .input-required{
+                color: crimson;
+                font-size: 10px;
+                font-weight: 300;
+                float: right;
+            }
+            .form-input{
+                margin-top: 40px;
+            }
+            form#form-user-login{
+                .form-group{
+                    label{
+                        width: 100%;
+                        background-color: #eee;
+                        padding: 15px;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        border-radius: 4px;
+                        font-weight: 600;
+                        font-size: 12px;
+                    }
+                    input{
+                        width: 100%;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                    }
+                }
+                .form-header{
+                    text-align: center;
+                    padding-bottom: 10px;
+                    margin-bottom: 20px;
+                    box-shadow: 0 6px 10px #eee;
+                    border-radius: 4px;
+                    h3{
+                        margin: 10px;
+                        text-align: center;
+                        font-size: 22px;
+                        text-transform: uppercase;
+                        color: #474747;
+                        font-weight: 600;
+                    }
+                    span.header-info{
+                        font-size: 12px;
+                    }
+                }
+                .form-actions{
+                    // background-color: #eee;
+                    // padding-top: 15px;
+                    // padding-bottom: 15px;
+                    // position: absolute;
+                    // bottom: 0;
+                    // border-bottom-left-radius: 14px;
+                    // border-bottom-right-radius: 14px;
+                    // button:first-child{
+                    //     float: left;
+                    // }
+                    // button:last-child{
+                    //     float: right;
+                    // }
+                    
+                    .bg-gradient1 span , .bg-gradient1:before {
+                        @include gradientBg(180deg, #d34749, #d34749);
+                    }
+                    .signup-action{
+                        font-size: 14px;
+                        color: #474747;
+                        font-weight: 600;
+                        a.btn-user-signup{
+                            color: crimson !important;
+                        }
+                    }
+                    .btn-user-login{
+                        border: none;
+                        background: #0000;
+                    }
+                }
+            }
+        }
+        .signup-form.card-layout{
+            position: absolute;
+            background: white;
+            top: 0;
+            height: calc(100% - 100px);
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            box-shadow: 0 0 10px #c4c4c4;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            color: #7b7b7b;
+            height: 450px;
+            transition: all 0.5s;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            .input-error{
+                border: 1px solid crimson;
+            }
+            .input-required{
+                color: crimson;
+                font-size: 10px;
+                font-weight: 300;
+                float: right;
+            }
+            .form-input{
+                margin-top: 40px;
+            }
+            form#form-user-signup{
+                .form-group{
+                    label{
+                        width: 100%;
+                        background-color: #eee;
+                        padding: 15px;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        border-radius: 4px;
+                        font-weight: 600;
+                        font-size: 12px;
+                    }
+                    input{
+                        width: 100%;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                    }
+                }
+                .form-header{
+                    text-align: center;
+                    padding-bottom: 10px;
+                    margin-bottom: 20px;
+                    box-shadow: 0 6px 10px #eee;
+                    border-radius: 4px;
+                    h3{
+                        margin: 10px;
+                        text-align: center;
+                        font-size: 22px;
+                        text-transform: uppercase;
+                        color: #474747;
+                        font-weight: 600;
+                    }
+                    span.header-info{
+                        font-size: 12px;
+                    }
+                }
+                .form-actions{
+                    // background-color: #eee;
+                    // padding-top: 15px;
+                    // padding-bottom: 15px;
+                    // position: absolute;
+                    // bottom: 0;
+                    // border-bottom-left-radius: 14px;
+                    // border-bottom-right-radius: 14px;
+                    // button:first-child{
+                    //     float: left;
+                    // }
+                    // button:last-child{
+                    //     float: right;
+                    // }
+                    
+                    .bg-gradient1 span , .bg-gradient1:before {
+                        @include gradientBg(180deg, #d34749, #d34749);
+                    }
+                    .signup-action{
+                        font-size: 14px;
+                        color: #474747;
+                        font-weight: 600;
+                        display: inline-block;
+                        margin-bottom: 20px;
+                        a.btn-user-login{
+                            color: crimson !important;
+                        }
+                    }
+                    .btn-user-signup{
+                        border: none;
+                        background: #0000;
+                    }
+                }
+            }
+        }
+        .signup-form.card-layout::-webkit-scrollbar {
+            width: 5px;
+        }
+        /* Track */
+        .signup-form.card-layout::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+
+        /* Handle */
+        .signup-form.card-layout::-webkit-scrollbar-thumb {
+            background: #888; 
+        }
+
+        /* Handle on hover */
+        .signup-form.card-layout::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+
+    }
+}
+
+// NAVBAR
+#login-page-navbar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: all 0.5s;
+    padding-top: 60px;
+    a {
+        padding: 10px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+    .nav-actions{
+        text-align: center;
+    }
+    .nav-actions.social{
+        i{
+            margin-right: 10px;
+            font-size: 30px;
+            color: white;
+            transition: all 0.5s;
+        }
+        i:last-child{
+            margin-right: 0;
+        }
+        i:hover{
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+    a:hover {
+        color: #f1f1f1;
+    }
+    a:last-child{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding-bottom: 25px;
+    }
+    .closebtn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 14px;
+        margin-left: 50px;
+        border: 1px solid #ddd;
+        padding: 5px 15px;
+        border-radius: 4px;
+        color: white;
+        text-transform: uppercase;
+        transition: all 0.2s;
+        width: 100px;
+        text-align: center;
+    }
+    .closebtn:hover{
+        font-weight: bold;
+    }
+}
