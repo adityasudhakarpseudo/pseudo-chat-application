@@ -10,6 +10,10 @@
 .bg-gradient2 span , .bg-gradient1:before {
     @include gradientBg(180deg, #59bf9e, #5bc1a3);
 }
+$green: #86BB71;
+$blue: #94C2ED;
+$orange: #E38968;
+$gray: #92959E;
 
 .page-chat-box{
     height: 100%;
@@ -213,6 +217,45 @@
                     }
                 }
             }
+            .tab-content-user-list{
+                height: 100%; 
+                .users-list-container{
+                    overflow-y: auto;
+                    height: 100%;
+                    .user-details-item{
+                        padding: 10px 15px !important;
+                        .chat-user-profile-picture{
+                            float: left;
+                            width: 50px;
+                            margin-right: 10px;
+                            img{
+                                margin-top: 0;
+                            }
+                        }
+                        .chat-user-details{
+                            float: right;
+                            width: calc(100% - 60px);
+                        }
+                    }
+                }
+                .users-list-container::-webkit-scrollbar {
+                    width: 2px;
+                }
+                /* Track */
+                .users-list-container::-webkit-scrollbar-track {
+                    background: #f1f1f1; 
+                }
+        
+                /* Handle */
+                .users-list-container::-webkit-scrollbar-thumb {
+                    background: #888; 
+                }
+        
+                /* Handle on hover */
+                .users-list-container::-webkit-scrollbar-thumb:hover {
+                    background: #555; 
+                }
+            }
         }
     }
     .content-main{
@@ -240,7 +283,117 @@
         .content-sub-main{
             height: calc(100% - 165px);
             overflow-y: auto;
+            .chat-history {
+                padding: 30px 30px 20px;
+                ul{
+                    list-style-type: none;
+                    padding: 0;
+                }
+                .message-data {
+                  margin-bottom: 15px;
+                }
+                
+                .message-data-time {
+                  color: lighten($gray, 8%);
+                  padding-left: 6px;
+                }
+                
+                .message {      
+                  color: white;
+                  padding: 18px 20px;
+                  line-height: 26px;
+                  font-size: 16px;
+                  border-radius: 7px;
+                  margin-bottom: 30px;
+                  width: 90%;
+                  position: relative;
+                  
+                  &:after {
+                    bottom: 100%;
+                    left: 7%;
+                    border: solid transparent;
+                    content: " ";
+                    height: 0;
+                    width: 0;
+                    position: absolute;
+                    pointer-events: none;
+                    border-bottom-color: $green;
+                    border-width: 10px;
+                    margin-left: -10px;
+                  }
+                }
+                
+                .my-message {
+                  background: $green;
+                }
+                
+                .other-message {
+                  background: $blue;
+                  
+                  &:after {
+                    border-bottom-color: $blue;
+                    left: 93%;
+                  }
+                }
+                
+            }
+            .online, .offline, .me {
+                margin-right: 10px;
+                margin-left: 10px;
+                font-size: 10px;
+            }
+              
+            .online {
+              color: $green;
+            }
+              
+            .offline {
+              color: $orange;
+            }
+            
+            .me {
+              color: $blue;
+            }
+            
+            .align-left {
+              text-align: left;
+            }
+            
+            .align-right {
+              text-align: right;
+            }
+            
+            .float-right {
+              float: right;
+            }
+            
+            .clearfix:after {
+                visibility: hidden;
+                display: block;
+                font-size: 0;
+                content: " ";
+                clear: both;
+                height: 0;
+            }
+                        
         } 
+        .content-sub-main::-webkit-scrollbar {
+            width: 5px;
+        }
+        /* Track */
+        .content-sub-main::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+
+        /* Handle */
+        .content-sub-main::-webkit-scrollbar-thumb {
+            background: #888; 
+        }
+
+        /* Handle on hover */
+        .content-sub-main::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
         .content-footer{
             height: 100px;
             background-color: white;

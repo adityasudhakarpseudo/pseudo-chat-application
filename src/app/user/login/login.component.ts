@@ -149,9 +149,9 @@ export class LoginComponent implements OnInit {
     }
     else if(action_type == 'signup'){
       let content = {
-        first_name: this.user_first_name,
-        last_name: this.user_last_name,
-        mobile_number: this.user_mobile_number,
+        firstName: this.user_first_name,
+        lastName: this.user_last_name,
+        mobileNumber: this.user_mobile_number,
         email: this.user_new_email_id,
         password: this.user_new_password
       }
